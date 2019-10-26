@@ -1,2 +1,2 @@
 # tdiary
-Student BCA final project named Teacher's Diary
+BCA final year project named Teacher's Diary

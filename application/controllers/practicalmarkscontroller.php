@@ -1,0 +1,48 @@
+<?php
+class Practicalmarkscontroller extends CI_Controller
+{
+
+	function __construct()
+    {
+        parent::__construct();
+        
+         if(!$this->session->userdata('user')) redirect('Login_controller');
+
+     }
+	/*public function index()
+	{
+		
+		$this->load->model('practicalmarksmodel');
+		$a = $this->practicalmarksmodel->getData();
+		
+		$data['marks'] = $this->practicalmarksmodel->getData();
+		
+		$data['page_'] = 'practicalmarksview';
+		$data['title'] = 'View Practical Marks';
+       
+        $this->load->view('templates/header',$data);
+        $this->load->view('myrajpage',$data);  
+        $this->load->view('templates/footer');
+		
+
+	}*/
+
+	public function index()
+	{
+		 $data['page_'] = 'practicalmarksview';
+		 $data['title'] = 'View Marks';
+       
+        $this->load->view('templates/header',$data);
+        $this->load->view('myrajpage',$data);  
+        $this->load->view('templates/footer');
+		
+
+	}
+
+	function viewmarks(){
+		$this->load->model('practicalmarksmodel','im');
+		$data['marks'] = $this->im->internalmarks();
+
+		echo json_encode($data);
+	}
+}
